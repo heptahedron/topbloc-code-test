@@ -7,8 +7,16 @@ import java.util.Scanner;
 import codes.braxton.topbloc.TestTable;
 import codes.braxton.topbloc.TestTableException;
 
+/**
+ * Class containing logic for the main executable, which sends the
+ * application.
+ */
 public class App {
 
+    /**
+     * Main method, sends application via HTTP to URL given in
+     * command-line parameters.
+     */
     public static void main(String[] args) throws TestTableException {
         if (args.length < 4) {
             System.out.println("Usage: topblocapp <table_a_path> <table_2_path> <email> <application_url>");
@@ -66,6 +74,12 @@ public class App {
         }
     }
 
+    /**
+     * Prompts user to confirm before some action is taken.
+     *
+     * @param prompt prompt to show user describing action that will be taken
+     * @param yes    affirmative response to match with user input
+     */
     private static boolean confirm(String prompt, String yes) {
         System.out.print(prompt);
         
@@ -74,6 +88,12 @@ public class App {
         return response.equals(yes);
     }
 
+    /**
+     * Sends application to URL with JSON-encoded body.
+     *
+     * @param url        URL to which to send application
+     * @param appContent JSON-encoded application body
+     */
     private static String sendApplication(String url, String appContent) {
         return HttpRequest.post(url)
             .contentType(HttpRequest.CONTENT_TYPE_JSON)

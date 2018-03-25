@@ -6,6 +6,13 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 
+/**
+ * This class represents any exceptions which may arise during the
+ * reading, combination, creation, or other handling of
+ * <code>TestTable</code>s. Static methods are provided for specific
+ * instances of exceptions that may be encountered, which might later
+ * be refactored into individual subclasses.
+ */
 public class TestTableException extends Exception {
 
     private TestTableException() { super(); }
